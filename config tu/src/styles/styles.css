@@ -1,0 +1,517 @@
+/* ==========================================================================
+   KIMUKA CORE STYLES - INFRAESTRUCTURA VISUAL (ESTÁNDAR OMG/W3C)
+   ========================================================================== */
+
+:root {
+    /* Paleta de Colores Premium Dark */
+    --bg-main: #0a0a0a;
+    --bg-card: #141414;
+    --bg-input: #1f1f1f;
+    --border-color: #2d2d2d;
+    
+    /* Textos */
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --text-muted: #666666;
+    
+    /* Estados Semánticos */
+    --color-success: #2ecc71;
+    --color-error: #e74c3c;
+    --color-warning: #f1c40f;
+}
+
+/* Base & Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.dark-theme {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Layout y Componentes Estructurales Compartidos */
+.top-nav {
+    background-color: #000000;
+    padding: 12px 10%;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 12px;
+    letter-spacing: 4px;
+}
+
+.top-nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.top-nav a:hover {
+    color: var(--text-primary);
+}
+
+.main-header {
+    display: block; /* WeasyPrint/Layout compatible */
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 10%;
+    background-color: rgba(10, 10, 10, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Estructuración de cabeceras mediante tablas CSS para máxima compatibilidad */
+.header-container {
+    display: table;
+    width: 100%;
+}
+
+.logo-principal-cell {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.header-actions-cell {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.logo-principal {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.logo-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+.logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.btn-login {
+    background: var(--bg-input);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none !important;
+}
+
+.btn-login a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.btn-login:hover {
+    background: var(--text-primary);
+    color: #000000;
+    border-color: var(--text-primary);
+}
+
+.content-wrapper {
+    padding: 40px 10%;
+    min-height: calc(100vh - 200px);
+}
+
+/* ==========================================================================
+   VISTAS SEMÁNTICAS (Paneles y Formularios)
+   ========================================================================== */
+
+.panel-registro {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 20px;
+    display: table;
+    width: 100%;
+}
+
+.form-section-cell {
+    display: table-cell;
+    width: 60%;
+    vertical-align: top;
+    padding-right: 20px;
+}
+
+.image-section-cell {
+    display: table-cell;
+    width: 40%;
+    vertical-align: middle;
+    text-align: center;
+    border-left: 1px solid var(--border-color);
+    padding-left: 20px;
+}
+
+.form-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.grid-form {
+    display: block;
+}
+
+.input-row {
+    display: table;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-cell {
+    display: table-cell;
+    width: 50%;
+    padding-right: 10px;
+}
+
+.input-cell:last-child {
+    padding-right: 0;
+    padding-left: 10px;
+}
+
+.input-group {
+    display: block;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 8px;
+}
+
+input, select {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 12px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%;
+}
+
+input:focus, select:focus {
+    border-color: var(--text-secondary);
+}
+
+input::placeholder {
+    color: #555555;
+}
+
+input[type="date"], input[type="time"] {
+    text-align: center;
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+input[type="file"] {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.btn-submit {
+    background: var(--text-primary);
+    color: #000000;
+    border: none;
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    display: block;
+
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    background-color: var(--text-secondary);
+}
+
+.portrait-wrapper {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--border-color);
+    background-color: var(--bg-input);
+    margin: 0 auto 15px auto;
+}
+
+.portrait-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   GESTIÓN, DASHBOARDS Y TABLAS
+   ========================================================================== */
+
+.img-principal {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.img-principal img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.toolbar {
+    margin-bottom: 25px;
+}
+
+.table-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.panel-gestion {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.filters-grid {
+    display: table;
+    width: 100%;
+}
+
+.filter-cell {
+    display: table-cell;
+    padding-right: 15px;
+    vertical-align: bottom;
+}
+
+.filter-cell:last-child {
+    padding-right: 0;
+}
+
+/* Arquitectura de Cuadro de Mando */
+.stats-container {
+    display: table;
+    width: 100%;
+}
+
+.stats-cell-left {
+    display: table-cell;
+    width: 50%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.stats-cell-right {
+    display: table-cell;
+    width: 50%;
+    vertical-align: middle;
+    padding-left: 30px;
+}
+
+.chart-box {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.highlight-info {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.highlight-info h4 {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.highlight-info p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.kimukaPedidos-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.kimukaPedidos-table th, .kimukaPedidos-table td {
+    padding: 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.kimukaPedidos-table th {
+    background-color: var(--bg-card);
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.status {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.status-success { background: rgba(46, 204, 113, 0.2); color: var(--color-success); }
+.status-fail { background: rgba(231, 76, 60, 0.2); color: var(--color-error); }
+.status-pending { background: rgba(241, 196, 15, 0.2); color: var(--color-warning); }
+
+/* ==========================================================================
+   CLASES UTILITARIAS CLAVE (ELIMINAN EL ESTILO EN LÍNEA)
+   ========================================================================== */
+
+.w-100 { width: 100%; }
+.max-w-500 { max-width: 500px; margin: 0 auto; }
+.max-w-550 { max-width: 550px; margin: 0 auto; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.margin-b-10 { margin-bottom: 10px; }
+.margin-b-15 { margin-bottom: 15px; }
+.margin-b-20 { margin-bottom: 20px; }
+.margin-b-25 { margin-bottom: 25px; }
+.margin-b-35 { margin-bottom: 35px; }
+.margin-b-40 { margin-bottom: 40px; }
+.margin-t-10 { margin-top: 10px; }
+.margin-t-15 { margin-top: 15px; }
+.margin-block-15 { margin-top: 15px; margin-bottom: 15px; }
+.font-size-sm { font-size: 0.8rem; }
+.font-size-md { font-size: 0.9rem; }
+.font-size-lg { font-size: 1.6rem; }
+.font-size-xl { font-size: 1.8rem; }
+.no-text-decor { text-decoration: none; }
+.display-block { display: block; }
+.display-inline-block { display: inline-block; }
+.flex-row-gap-10 { display: flex; gap: 10px; justify-content: flex-end; }
+.btn-alert-color { background-color: var(--color-error); color: white; }
+.flex-center { display: flex; justify-content: center; align-items: center; }
+.text-primary { color: var(--text-primary); }
+.vertical-align-mid { vertical-align: middle; }
+.avatar-preview-text { font-size: 1.4rem; margin-bottom: 20px; text-align: center; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.module-card { text-align: center; display: flex; flex-direction: column; justify-content: space-between; min-height: 200px; }
+.logo-img-auth { width: 70px; height: 70px; object-fit: contain; }
+.materia-prima-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.card-materia-prima { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 15px; padding: 20px; text-align: center; transition: border-color 0.3s ease; }
+.card-materia-prima:hover { border-color: var(--text-secondary); }
+.card-materia-prima h2 { font-size: 1.1rem; margin-bottom: 8px; }
+.card-materia-prima p { margin-bottom: 4px; }
+
+/* ==========================================================================
+   BOTÓN DE EXPORTACIÓN A EXCEL (Módulo de Reportes)
+   ========================================================================== */
+
+/* Celda de filtro que alberga el botón: alineada a la derecha */
+.filter-cell-btn {
+    text-align: right;
+    white-space: nowrap;
+    vertical-align: bottom;
+}
+
+.filter-cell-btn button {
+    width: auto;
+}
+
+/* Botón verde de exportación a Excel */
+.btn-export {
+    background: var(--color-success);
+    color: #000000;
+    border: none;
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    display: inline-block;
+}
+
+.btn-export:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background-color: #27ae60;
+}
+
+.btn-export:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-export span {
+    margin-right: 8px;
+}
+
+/* Mensaje de error de la exportación */
+.text-error {
+    color: var(--color-error);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   MAIN FOOTER
+   ========================================================================== */
+
+.main-footer {
+    text-align: center;
+    padding: 40px 10%;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background-color: #000000;
+}
+
+.main-footer p {
+    margin-bottom: 8px;
+}
